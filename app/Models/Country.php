@@ -9,4 +9,15 @@ class Country extends Model
 {
     /** @use HasFactory<\Database\Factories\CountryFactory> */
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'code',
+        'name',
+        'states',
+    ];
 }

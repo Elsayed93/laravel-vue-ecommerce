@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\OrderStatusEnum;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->decimal('total_price');
+            $table->unsignedTinyInteger('status')->default(OrderStatusEnum::PENDING);
+            $table->foreignIdFor(User::class, 'created_by');
+            $table->foreignIdFor(User::class, 'updated_by');
             $table->timestamps();
         });
     }
