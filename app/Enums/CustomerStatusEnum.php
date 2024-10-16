@@ -2,8 +2,8 @@
 
 namespace App\Enums;
 
-enum CustomerStatusEnum: int
+enum CustomerStatusEnum: string
 {
-    case PENDING = 1;
-    case COMPLETED = 2;
+    case Active = 1;
+    case Disabled = 2;
 }
