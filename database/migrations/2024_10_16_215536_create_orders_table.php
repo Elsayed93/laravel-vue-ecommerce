@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->decimal('total_price');
-            $table->unsignedTinyInteger('status')->default(OrderStatusEnum::PENDING);
+            $table->unsignedTinyInteger('status')->default(OrderStatusEnum::UNPAID);
             $table->foreignIdFor(User::class, 'created_by');
             $table->foreignIdFor(User::class, 'updated_by');
             $table->timestamps();
